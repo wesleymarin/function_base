@@ -1,4 +1,14 @@
 
+kirLocusList <- c('KIR2DL1','KIR2DL2','KIR2DL3','KIR2DL4','KIR2DL5A','KIR2DL5B',
+                  'KIR2DS1','KIR2DS2','KIR2DS3','KIR2DS4','KIR2DS5','KIR2DP1',
+                  'KIR3DL1','KIR3DL2','KIR3DL3','KIR3DS1','KIR3DP1')
+
+nucListConv <- list('A'=1,
+                    'T'=2,
+                    'C'=3,
+                    'G'=4,
+                    '.'=5)
+
 ## This function checks to make sure the output of system2 is valid
 check.system2_output <- function(system2_output, system2_error){
   
