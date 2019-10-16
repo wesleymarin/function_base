@@ -62,9 +62,14 @@ samfile.count_header_lines <- function(currentSample){
   while(TRUE){
     
     line = readLines(con, n = 1)
-    if(strsplit(line,'\t')[[1]][1] != "@SQ"){
+    #if(strsplit(line,'\t')[[1]][1] != "@SQ"){
+    #  break
+    #}
+    
+    if(substr(line,1,1) != '@'){
       break
     }
+    
     headerLines <- headerLines + 1
   }
   close(con)
@@ -368,6 +373,7 @@ samfile.read_whole_genome_sam <- function(sam_path, rows_to_skip=26){
   colnames(output.samTable)[2] <- 'sam_flag'
   colnames(output.samTable)[3] <- 'reference_name'
   colnames(output.samTable)[4] <- 'ref_pos'
+  colnames(output.samTable)[6] <- 'cigar_string'
   colnames(output.samTable)[10] <- 'read_seq'
   
   

@@ -111,6 +111,14 @@ build.c4_deletion_index_list <- function(c4AlleleDF){
   return(deletionIndexList)
 }
 
+## This function initializes a list of dataframes for storing the assembled nucleotides for each kir locus
+build.c4_nuc_frame <- function(c4AlleleDF){
+  refSeqDF <- data.frame(matrix(0,5,ncol(c4AlleleDF)),check.names=F,stringsAsFactors=F)
+  colnames(refSeqDF) <- as.character(colnames(c4AlleleDF))
+  rownames(refSeqDF) <- c('1','2','3','4','5')
+  return(refSeqDF)
+}
+
 ## This function counts how many reads map to a unique locus or allele
 c4.count_read_matches <- function(currentSample, samTable, alignedLocusVect, maxReadThreshold){
   
